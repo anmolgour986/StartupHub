@@ -18,19 +18,12 @@ Live Demo · Report Bug · Request Feature
 
 📝 Note: Replace the placeholder image paths above with real screenshots — drop your PNGs into the /screenshots folder using the same filenames (or update the paths) and they'll render directly on GitHub.
 
-🔗 Live Demo
+🔗<h1> Live Demo</h1>
 	
 Frontend	https://startup-hub-self.vercel.app/
 
-Replace these with your actual deployment URLs once hosted (e.g. Vercel/Netlify for the client, Render/Railway for the server).
 
-Demo credentials (password for all: Password123!):
 
-Role	Email
-Founder	maya@startuphub.dev
-Developer	liam@startuphub.dev
-Designer	sofia@startuphub.dev
-Admin	admin@startuphub.dev
 ✨ Features
 🔐 Authentication — JWT auth, bcrypt password hashing, persistent login, role-based access (founder / developer / designer / admin)
 🏠 Landing page — animated hero, features, how-it-works, featured startups, stats
@@ -53,30 +46,9 @@ Frontend: React 18 · Vite · Tailwind CSS · React Router v6 · Axios · Framer
 
 Backend: Node.js · Express.js · MongoDB · Mongoose · JWT · bcrypt · Socket.io · Multer · Helmet · CORS
 
-📂 Project Structure
-StartupHub/
-├── server/                 # Express + MongoDB API
-│   ├── controllers/        # Route handler logic
-│   ├── models/              # Mongoose schemas
-│   ├── routes/              # Express routers
-│   ├── middleware/          # Auth, error handling, uploads
-│   ├── services/            # Notification service, etc.
-│   ├── sockets/             # Socket.io real-time handlers
-│   ├── config/               # DB connection
-│   ├── utils/                # JWT helper, seed script
-│   └── server.js
+
 │
-├── client/                  # React + Vite frontend
-│   └── src/
-│       ├── components/      # Reusable UI, dashboard, startup, task, chat
-│       ├── pages/            # Route-level pages
-│       ├── layouts/          # Public & dashboard layouts
-│       ├── hooks/             # Custom hooks
-│       ├── context/           # Auth, Theme, Socket contexts
-│       ├── services/          # Centralized Axios API service
-│       └── App.jsx
-│
-└── screenshots/             # README screenshots
+
 ⚙️ Getting Started
 Prerequisites
 Node.js v18+
