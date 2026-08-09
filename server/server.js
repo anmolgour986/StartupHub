@@ -28,7 +28,7 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+const clientUrl = process.env.CLIENT_URL || "https://startup-hub-self.vercel.app";
 
 const io = new Server(server, {
   cors: { origin: clientUrl, credentials: true },
