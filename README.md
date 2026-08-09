@@ -1,4 +1,4 @@
-StartupHub
+<H1>StartupHub</H1>
 
 A modern MERN-stack collaboration platform where startup founders post ideas and developers/designers join their teams.
 
@@ -135,10 +135,10 @@ Distributed under the MIT License. See LICENSE for more information.
 
 👤 Author
 
-Your Name
+Anmol Sharma
 
-GitHub: @your-username
-LinkedIn: your-name
+GitHub: @anmolgour986
+LinkedIn: Anmol Sharma
 <div align="center">
 
 If you found this project helpful, consider giving it a ⭐️!
