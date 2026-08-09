@@ -101,7 +101,7 @@ const Register = () => {
               <label className="label">Email</label>
               <div className="relative">
                 <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type="email" className="input !pl-10" placeholder="you@example.com" {...register('email', { required: 'Required' })} />
+                <input type="email" className="input !pl-10" placeholder="anmol@example.com" {...register('email', { required: 'Required' })} />
               </div>
               {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
             </div>
