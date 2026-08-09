@@ -83,7 +83,7 @@ const Register = () => {
                 <label className="label">Full name</label>
                 <div className="relative">
                   <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                  <input className="input !pl-10" placeholder="Jane Doe" {...register('name', { required: 'Required' })} />
+                  <input className="input !pl-10" placeholder="Anmol Sharma" {...register('name', { required: 'Required' })} />
                 </div>
                 {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
               </div>
@@ -91,7 +91,7 @@ const Register = () => {
                 <label className="label">Username</label>
                 <div className="relative">
                   <AtSign size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                  <input className="input !pl-10" placeholder="janedoe" {...register('username', { required: 'Required' })} />
+                  <input className="input !pl-10" placeholder="anmolsharma" {...register('username', { required: 'Required' })} />
                 </div>
                 {errors.username && <p className="text-xs text-red-500 mt-1">{errors.username.message}</p>}
               </div>
