@@ -1,232 +1,146 @@
-# StartupHub 🚀
+StartupHub
 
-A full-stack MERN collaboration platform where startup founders post ideas and developers/designers join their teams — built with React, Node/Express, MongoDB, and Socket.io for real-time chat and notifications.
+A modern MERN-stack collaboration platform where startup founders post ideas and developers/designers join their teams.
 
----
+Built with React, Node.js, Express, MongoDB, and Socket.io for real-time chat and notifications.
 
-## Table of Contents
+Live Demo · Report Bug · Request Feature
 
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Setup Instructions](#setup-instructions)
-- [Environment Variables](#environment-variables)
-- [Seeding Demo Data](#seeding-demo-data)
-- [Demo Login Credentials](#demo-login-credentials)
-- [Running the App](#running-the-app)
-- [Features](#features)
-- [API Overview](#api-overview)
-- [Troubleshooting](#troubleshooting)
+</div>
+📸 Screenshots
+<img width="1920" height="1140" alt="image" src="https://github.com/user-attachments/assets/e997910e-84da-4495-8840-7b146464d2c9" />
 
----
+<img width="1920" height="1140" alt="image" src="https://github.com/user-attachments/assets/f26a3f71-aa40-4630-806d-67f5b0e6f2db" />
 
-## Tech Stack
+<img width="1920" height="1140" alt="image" src="https://github.com/user-attachments/assets/c0b15d46-eefc-4f6c-9d49-7ceff536726e" />
 
-**Frontend:** React 18 + Vite, Tailwind CSS, React Router v6, Axios, Framer Motion, Lucide React, Recharts, React Hook Form, React Hot Toast, Socket.io Client
 
-**Backend:** Node.js, Express.js, MongoDB + Mongoose, JWT, bcrypt, Socket.io, Multer, dotenv, Helmet, CORS
 
----
+📝 Note: Replace the placeholder image paths above with real screenshots — drop your PNGs into the /screenshots folder using the same filenames (or update the paths) and they'll render directly on GitHub.
 
-## Project Structure
+🔗 Live Demo
+	
+Frontend	https://startup-hub-self.vercel.app/
 
-```
+Replace these with your actual deployment URLs once hosted (e.g. Vercel/Netlify for the client, Render/Railway for the server).
+
+Demo credentials (password for all: Password123!):
+
+Role	Email
+Founder	maya@startuphub.dev
+Developer	liam@startuphub.dev
+Designer	sofia@startuphub.dev
+Admin	admin@startuphub.dev
+✨ Features
+🔐 Authentication — JWT auth, bcrypt password hashing, persistent login, role-based access (founder / developer / designer / admin)
+🏠 Landing page — animated hero, features, how-it-works, featured startups, stats
+📊 Dashboards — role-aware stats, charts, recent activity
+🚀 Startup management — create/edit/delete startups with skills, tags, category, status
+🔍 Discover — search, filter, sort, pagination
+📋 Applications — apply with a message, founders accept/reject, auto team join
+👥 Team management — member profiles with GitHub/LinkedIn/portfolio links
+📌 Kanban board — drag-and-drop tasks across Todo → In Progress → Review → Completed
+💬 Real-time chat — 1:1 & team chat via Socket.io, online presence, typing indicators, read receipts
+📁 File sharing — upload/download images, PDFs, DOC/DOCX, ZIP
+🔔 Notifications — real-time + persisted, for applications, tasks, messages, files, milestones
+🎯 Milestones — project goals with visual progress tracking
+🛡️ Admin panel — platform stats, user & startup moderation
+🌗 Dark mode — persisted theme preference
+✨ Polish — toasts, skeleton loaders, empty states, modals, confirmation dialogs, mobile-responsive
+🛠️ Tech Stack
+
+Frontend: React 18 · Vite · Tailwind CSS · React Router v6 · Axios · Framer Motion · Lucide React · Recharts · React Hook Form · React Hot Toast · Socket.io Client
+
+Backend: Node.js · Express.js · MongoDB · Mongoose · JWT · bcrypt · Socket.io · Multer · Helmet · CORS
+
+📂 Project Structure
 StartupHub/
 ├── server/                 # Express + MongoDB API
 │   ├── controllers/        # Route handler logic
-│   ├── models/             # Mongoose schemas
+│   ├── models/              # Mongoose schemas
 │   ├── routes/              # Express routers
-│   ├── middleware/         # Auth, error handling, uploads
-│   ├── services/           # Notification service, etc.
-│   ├── sockets/            # Socket.io real-time handlers
-│   ├── config/             # DB connection
-│   ├── utils/              # JWT helper, seed script
-│   ├── uploads/            # Uploaded files (local storage)
-│   └── server.js           # Entry point
+│   ├── middleware/          # Auth, error handling, uploads
+│   ├── services/            # Notification service, etc.
+│   ├── sockets/             # Socket.io real-time handlers
+│   ├── config/               # DB connection
+│   ├── utils/                # JWT helper, seed script
+│   └── server.js
 │
-└── client/                 # React + Vite frontend
-    └── src/
-        ├── components/     # Reusable UI, dashboard, startup, task, chat components
-        ├── pages/          # Route-level pages
-        ├── layouts/        # Public & dashboard layouts
-        ├── hooks/          # Custom hooks (useStartup, etc.)
-        ├── context/        # Auth, Theme, Socket contexts
-        ├── services/       # Centralized Axios API service
-        ├── utils/          # Formatting/helper functions
-        └── App.jsx         # Route definitions
-```
-
----
-
-## Prerequisites
-
-- **Node.js** v18+ and npm
-- **MongoDB** — either:
-  - A local MongoDB instance (`mongodb://localhost:27017/startuphub`), or
-  - A free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster (recommended)
-
----
-
-## Setup Instructions
-
-### 1. Clone / open the project
-
-```bash
+├── client/                  # React + Vite frontend
+│   └── src/
+│       ├── components/      # Reusable UI, dashboard, startup, task, chat
+│       ├── pages/            # Route-level pages
+│       ├── layouts/          # Public & dashboard layouts
+│       ├── hooks/             # Custom hooks
+│       ├── context/           # Auth, Theme, Socket contexts
+│       ├── services/          # Centralized Axios API service
+│       └── App.jsx
+│
+└── screenshots/             # README screenshots
+⚙️ Getting Started
+Prerequisites
+Node.js v18+
+MongoDB — local instance or a free MongoDB Atlas cluster
+1. Clone the repo
+bash
+git clone https://github.com/<your-username>/StartupHub.git
 cd StartupHub
-```
-
-### 2. Install backend dependencies
-
-```bash
+2. Backend setup
+bash
 cd server
 npm install
-```
-
-### 3. Install frontend dependencies
-
-```bash
-cd ../client
+cp .env.example .env   # then fill in MONGO_URI and JWT_SECRET
+npm run seed            # optional: populate demo data
+npm run dev
+3. Frontend setup
+bash
+cd client
 npm install
-```
-
-### 4. Configure environment variables
-
-**Backend** — copy the example file and fill in your values:
-
-```bash
-cd ../server
 cp .env.example .env
-```
+npm run dev
 
-Edit `server/.env`:
+The app runs at http://localhost:5173, API at http://localhost:5000.
 
-```env
-MONGO_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/startuphub
-JWT_SECRET=replace-with-a-long-random-string
+Environment Variables
+
+server/.env
+
+env
+MONGO_URI=your-mongodb-connection-string
+JWT_SECRET=your-long-random-secret
 JWT_EXPIRES_IN=7d
 PORT=5000
 CLIENT_URL=http://localhost:5173
-```
 
-> ⚠️ **Never commit your `.env` file.** `MONGO_URI` and `JWT_SECRET` are secrets — `.gitignore` already excludes `.env` files.
+client/.env
 
-**Frontend** — copy its example file too:
-
-```bash
-cd ../client
-cp .env.example .env
-```
-
-`client/.env` (defaults work out of the box for local dev):
-
-```env
+env
 VITE_API_URL=http://localhost:5000/api
 VITE_SOCKET_URL=http://localhost:5000
-```
 
----
+⚠️ Never commit real .env files — only .env.example is tracked.
 
-## Seeding Demo Data
+🤝 Contributing
 
-Once `MONGO_URI` is set in `server/.env`, populate the database with realistic demo data (founders, developers, designers, startups, applications, tasks, milestones, notifications, and chat messages):
+Contributions are welcome! Please open an issue first to discuss what you'd like to change.
 
-```bash
-cd server
-npm run seed
-```
+Fork the project
+Create your feature branch (git checkout -b feature/amazing-feature)
+Commit your changes (git commit -m 'Add amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Open a Pull Request
+📄 License
 
-This **clears existing data** in the connected database and recreates it. Safe to re-run anytime you want a fresh demo state.
+Distributed under the MIT License. See LICENSE for more information.
 
----
+👤 Author
 
-## Demo Login Credentials
+Your Name
 
-All demo accounts share the same password: **`Password123!`**
+GitHub: @your-username
+LinkedIn: your-name
+<div align="center">
 
-| Role      | Email                     | Notes                              |
-|-----------|---------------------------|-------------------------------------|
-| Admin     | `admin@startuphub.dev`    | Full platform access               |
-| Founder   | `maya@startuphub.dev`     | Owns FlowBoard & Lumen Health       |
-| Founder   | `daniel@startuphub.dev`   | Owns PayBridge                      |
-| Developer | `liam@startuphub.dev`     | On FlowBoard's team                 |
-| Developer | `priya@startuphub.dev`    | Has a pending application           |
-| Developer | `noah@startuphub.dev`     | On Lumen Health's team              |
-| Designer  | `sofia@startuphub.dev`    | On FlowBoard's team                 |
-| Designer  | `kenji@startuphub.dev`    | Has a rejected application          |
+If you found this project helpful, consider giving it a ⭐️!
 
-The login page also has one-click buttons to autofill these demo accounts.
-
----
-
-## Running the App
-
-Open **two terminals**.
-
-**Terminal 1 — Backend:**
-
-```bash
-cd server
-npm run dev
-```
-
-The API starts on `http://localhost:5000` (health check at `/api/health`).
-
-**Terminal 2 — Frontend:**
-
-```bash
-cd client
-npm run dev
-```
-
-The app opens on `http://localhost:5173`. Vite is pre-configured to proxy `/api`, `/uploads`, and `/socket.io` requests to the backend, so no CORS setup is needed for local dev.
-
----
-
-## Features
-
-- **Authentication:** Register/login/logout, JWT auth, bcrypt password hashing, persistent login, role-based authorization (founder / developer / designer / admin)
-- **Landing page:** Hero, features, how-it-works, featured startups, stats, CTA — with Framer Motion animations
-- **Dashboards:** Role-aware overview with stats, charts (Recharts), and recent activity
-- **Startup management:** Create/edit/delete startups with skills, tags, category, team size, remote/location, status
-- **Discover:** Search, filter (category/skill/status/remote), sort, pagination
-- **Applications:** Apply with a message + experience; founders accept/reject; accepted applicants auto-join the team
-- **Team management:** View team member profiles (GitHub/LinkedIn/portfolio), remove members
-- **Kanban tasks:** Drag-and-drop across Todo → In Progress → Review → Completed, priorities, due dates, assignment
-- **Real-time chat:** 1:1 direct messages and team chat via Socket.io, online presence, typing indicators, read receipts
-- **File sharing:** Upload/download images, PDFs, DOC/DOCX, ZIP (Multer + local `/uploads`, structured for easy S3/Cloudinary swap later)
-- **Notifications:** Real-time + persisted notifications for applications, task assignment/completion, messages, file uploads, team joins, milestones
-- **Milestones:** Create project milestones with progress visualization
-- **Admin panel:** Platform stats, user management (activate/deactivate), startup moderation (hide/unhide)
-- **Dark mode:** Full light/dark theme, persisted in `localStorage`
-- **Polish:** Toasts, skeleton loaders, empty states, modals, confirmation dialogs, mobile-responsive sidebar/drawer
-
----
-
-## API Overview
-
-All endpoints are prefixed with `/api`. Protected routes require `Authorization: Bearer <token>`.
-
-| Resource | Base path |
-|---|---|
-| Auth | `/api/auth` (register, login, me, logout) |
-| Users | `/api/users` |
-| Startups | `/api/startups` |
-| Applications | `/api/applications` |
-| Tasks | `/api/tasks` |
-| Messages | `/api/messages` |
-| Notifications | `/api/notifications` |
-| Files | `/api/files` |
-| Milestones | `/api/milestones` |
-| Admin | `/api/admin` (admin role required) |
-
-Socket.io events include `message:direct`, `message:team`, `typing:start/stop`, `message:read`, `presence:online`, and `notification:new`.
-
----
-
-## Troubleshooting
-
-- **"MONGO_URI is not set"** — make sure `server/.env` exists and has a valid connection string, then restart `npm run dev`.
-- **CORS errors** — confirm `CLIENT_URL` in `server/.env` matches the URL your frontend runs on.
-- **Socket connection fails** — check that the backend is running and `VITE_SOCKET_URL` in `client/.env` points to it; the socket handshake requires a valid JWT.
-- **File uploads fail** — confirm the `server/uploads` folder exists (it's auto-created on server start) and the file type is one of: images, PDF, DOC/DOCX, ZIP (15MB limit).
-- **Seed script errors** — it needs `MONGO_URI` set and a reachable database; run it from inside `server/`.
+</div>
